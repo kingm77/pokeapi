@@ -5,8 +5,6 @@ import scala.io.StdIn.readLine
 import scala.io.Source
 import scala.util.matching.Regex
 import scala.util.matching.Regex.Match
-import spray.json._
-import DefaultJsonProtocol._
 
 object PokemonDB:
   val cmdBehavior: Map[String, Array[String] => (String, Int)]  =
@@ -16,7 +14,6 @@ object PokemonDB:
     parseCSV("K:\\Programs\\Scala\\PokemonDB\\src\\main\\ressources\\pokemon.csv")
 
   def main(args: Array[String]): Unit =
-    trySomething()
     printBanner()
     mainLoop(1)
 
@@ -150,11 +147,3 @@ object PokemonDB:
                 |                              \/    \/      \/            \/        \/       \/ """.stripMargin)
 
 
-def trySomething(): Unit =
-  val http = new Http()
-
-  val obj = http.get("https://pokeapi.co/api/v2/pokemon")
-    .parseJson
-    .asJsObject
-
-def getObj
